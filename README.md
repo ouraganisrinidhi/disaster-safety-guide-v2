@@ -40,6 +40,16 @@ Restart the server and open `http://localhost:3000/#admin`. Never commit `.env` 
 
 The administration dashboard manages verified emergency contacts and feedback, displays content-review counts, and documents the reviewed publishing workflow. The MySQL schema also contains normalized disaster, translation, first-aid, kit, quiz, content-version and audit tables for continued development.
 
+## Vercel and hosted MySQL
+
+The server uses the separate `DB_HOST`, `DB_PORT`, `DB_USER`, `DB_PASSWORD`, and `DB_NAME` variables. For providers that require TLS, set `DB_SSL_CA` to the full CA certificate text; the server verifies the database certificate.
+
+To apply the complete schema locally, run `npm run migrate` after setting those variables in `.env`. The migration script uses the configured database and does not attempt to create or switch databases.
+
+The GitHub Actions workflow at `.github/workflows/database-migrate.yml` applies the schema on pushes to `main`. Add `DB_HOST`, `DB_PORT`, `DB_USER`, `DB_PASSWORD`, `DB_NAME`, and `DB_SSL_CA` as GitHub Actions repository secrets. Change the workflow branch filter if your production branch is not named `main`. The schema uses `CREATE TABLE IF NOT EXISTS` and upserts its seed rows, so this workflow can safely be rerun for the current schema. Review schema changes before deploying them; do not put database credentials in workflow files.
+
+Vercel and GitHub Actions have separate environment settings: configure the same database variables in both places. Setting Vercel variables alone does not give the GitHub workflow access to them.
+
 ## Quality checks
 
 Run:
