@@ -1,0 +1,12 @@
+{
+  "name": "Disaster Safety Guide",
+  "short_name": "Safety Guide",
+  "description": "Offline-first disaster preparedness and emergency guidance.",
+  "start_url": "/#home",
+  "display": "standalone",
+  "background_color": "#f5f9fd",
+  "theme_color": "#075ea8",
+  "icons": [
+    { "src": "/assets/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}

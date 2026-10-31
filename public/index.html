@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#075ea8">
+  <meta name="description" content="Offline-first disaster preparedness, first aid and household safety tools.">
+  <title>Disaster Safety Guide</title>
+  <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="icon" href="/assets/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <div id="statusBar" class="status-bar" role="status" aria-live="polite"></div>
+  <header class="site-header">
+    <a class="brand" href="#home" aria-label="Disaster Safety Guide home">
+      <img src="/assets/icon.svg" alt="" width="42" height="42">
+      <span><strong>Disaster Safety Guide</strong><small>Be prepared. Stay safe. Save lives.</small></span>
+    </a>
+    <button id="menuBtn" class="icon-btn menu-btn" aria-expanded="false" aria-controls="primaryNav" aria-label="Open menu">☰</button>
+    <nav id="primaryNav" class="primary-nav" aria-label="Primary navigation">
+      <a href="#home" data-nav="home">Home</a>
+      <a href="#disasters" data-nav="disasters">Disasters</a>
+      <a href="#first-aid" data-nav="first-aid">First Aid</a>
+      <a href="#kit" data-nav="kit">Kit Checklist</a>
+      <a href="#plan" data-nav="plan">Safety Plan</a>
+    </nav>
+    <div class="header-actions">
+      <label class="language"><span class="sr-only">Language</span><select id="languageSelect"><option value="en">English</option><option value="te">తెలుగు</option><option value="hi">हिन्दी</option></select></label>
+      <button id="searchBtn" class="icon-btn" aria-label="Search">⌕</button>
+      <a id="accountLink" class="account-pill" href="#sign-in">Sign in</a>
+      <a class="emergency-pill" href="#emergency">☎ <span>Emergency Help</span></a>
+    </div>
+  </header>
+
+  <main id="main" tabindex="-1"></main>
+
+  <footer>
+    <div class="footer-brand"><img src="/assets/icon.svg" alt="" width="42"><div><strong>Disaster Safety Guide</strong><small>Prepared today. Safer tomorrow.</small></div></div>
+    <div><strong>Quick links</strong><a href="#disasters">Disaster guides</a><a href="#first-aid">First aid</a><a href="#emergency">Emergency help</a></div>
+    <div><strong>Preparedness</strong><a href="#kit">Kit checklist</a><a href="#plan">Safety plan</a><a href="#quiz">Awareness quiz</a></div>
+    <div><strong>Project</strong><a href="#feedback">Report a correction</a><a href="#admin">Administrator</a><a href="#offline">Offline information</a><small>Core guidance and locally saved tools remain available after initial setup.</small></div>
+  </footer>
+
+  <dialog id="searchDialog" aria-labelledby="searchTitle">
+    <form method="dialog" class="dialog-head"><h2 id="searchTitle">Search safety guidance</h2><button class="icon-btn" aria-label="Close search">×</button></form>
+    <label class="search-field">⌕ <input id="globalSearch" type="search" placeholder="Try “flood”, “burn” or “emergency”" autocomplete="off"></label>
+    <div id="searchResults" class="search-results"></div>
+  </dialog>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="/app.js" defer></script>
+</body>
+</html>
